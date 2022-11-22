@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { Post } from "../components/Post";
+import { Loading } from "../components/Loading";
 
 export const PostList = () => {
   const [posts, setPosts] = useState();
@@ -37,16 +38,7 @@ export const PostList = () => {
 
   if (isLoading) {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: '100%'
-        }}
-      >
-        <ActivityIndicator size="large" />
-      </View>
+      <Loading />
     );
   }
 
