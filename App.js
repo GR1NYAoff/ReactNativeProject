@@ -1,31 +1,16 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.highlight}>Hello world</Text>
+import React, {Component} from 'react';
+import {View} from 'react-native';
+import {Post} from './components/Post';
+export default class App extends Component {
+  render() {
+    return (
+      <View>
+        <Post
+          title="some"
+          imageUrl="https://www.positronx.io/wp-content/uploads/2020/02/react-native-150x150-1.jpg"
+          createdAt="22.11.2022"
+        />
       </View>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  header: {
-    backgroundColor: 'blue',
-    padding: 20,
-    borderRadius: 10,
-  },
-  highlight: {
-    color: 'yellow',
-    fontWeight: '800',
-  },
-});
-
-export default App;
+    );
+  }
+}
