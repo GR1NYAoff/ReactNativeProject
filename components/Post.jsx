@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { getFormattedDate } from '../helpers/DateHelper';
 
 const PostView = styled.View`
   flex-direction: row;
@@ -48,7 +49,7 @@ export const Post = ({title, imageUrl, createdAt}) => {
       <PostImage source={{uri: imageUrl}} />
       <PostDetails>
         <PostTitle>{truncateTitle(title)}</PostTitle>
-        <PostDate>{new Date(createdAt).toLocaleDateString()}</PostDate>
+        <PostDate>{getFormattedDate(createdAt)}</PostDate>
       </PostDetails>
     </PostView>
   );
