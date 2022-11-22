@@ -1,8 +1,8 @@
-import React from 'react';
-import axios from 'axios';
-import { View, Text } from 'react-native';
-import styled from 'styled-components/native';
-import { Loading } from '../components/Loading';
+import React from "react";
+import axios from "axios";
+import { View, Text } from "react-native";
+import styled from "styled-components/native";
+import { Loading } from "../components/Loading";
 
 const PostImage = styled.Image`
   border-radius: 10px;
@@ -26,13 +26,13 @@ export const FullPostScreen = ({ route, navigation }) => {
       title,
     });
     axios
-      .get('https://637cd83716c1b892ebc0da42.mockapi.io/api/articles' + id)
+      .get("https://637cd83716c1b892ebc0da42.mockapi.io/api/articles/" + id)
       .then(({ data }) => {
         setData(data);
       })
       .catch((err) => {
         console.log(err);
-        Alert.alert('Error');
+        Alert.alert("Error");
       })
       .finally(() => {
         setIsLoading(false);
@@ -40,11 +40,7 @@ export const FullPostScreen = ({ route, navigation }) => {
   }, []);
 
   if (isLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Loading />
-      </View>
-    );
+    return <Loading />;
   }
 
   return (

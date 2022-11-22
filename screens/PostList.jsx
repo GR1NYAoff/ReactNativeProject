@@ -12,7 +12,7 @@ import axios from "axios";
 import { Post } from "../components/Post";
 import { Loading } from "../components/Loading";
 
-export const PostList = () => {
+export const PostList = ({ navigation }) => {
   const [posts, setPosts] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
@@ -37,9 +37,7 @@ export const PostList = () => {
   useEffect(fetchPosts, []);
 
   if (isLoading) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   return (
@@ -52,7 +50,10 @@ export const PostList = () => {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              Alert.alert("touched");
+              navigation.navigate("FullPost", {
+                id: item.id,
+                title: item.title,
+              });
             }}
           >
             <Post

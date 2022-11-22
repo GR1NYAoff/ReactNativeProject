@@ -1,11 +1,6 @@
 import React from "react";
-import { View } from "react-native";
-import PostList from "./screens/PostList";
+import { Navigation } from "./screens/Navigation";
 
 export default function App() {
-  return (
-    <View>
-      <PostList />
-    </View>
-  );
+  return <Navigation />;
 }
