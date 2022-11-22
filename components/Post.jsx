@@ -32,6 +32,7 @@ const PostDate = styled.Text`
 `;
 
 const truncateTitle = str => {
+  if (str == null || str == '') return 'empty';
   if (str.length >= 50) {
     return str.substring(0, 50) + '...';
   }
